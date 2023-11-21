@@ -33,7 +33,7 @@ body {
   }
 
   .box {
-    flex: 2 1 1;
+    flex: 1 1 300px;
     margin: 20px;
     padding: 20px;
     background-color: #eaeaea;
