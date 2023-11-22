@@ -3,17 +3,33 @@
 <head>
   <title>Ameer Basha.in</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    <script src="https://kit.fontawesome.com/ee4fc3993f.js" crossorigin="anonymous"></script></head>
 <body>
-  <div class="navbar">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <header class="nav-header">
+    <div class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="btn-div">
+        <button>Hire Me</button>
+        <div class="toggle-btn">
+            <i class="fa-solid fa-bars" id="toggle-btn-icon"></i>
+        </div>
+    </div>
+    </div>
+    <div class="dropdown ">
+      <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><button>Hire Me</button></li>
+      </ul>
   </div>
-
+  </header>
   <div class="introduction" id="home">
     <h2>Hi Iam Ameer Basha</h2>
     <p>Discover the world of creativity and innovation through my projects and designs.</p>
@@ -75,8 +91,22 @@
       <div class="icon">
         <img src="Images/GoogleMaps-Icon-alone-1.webp" alt="Location" width="30" height="30">
       </div>
-      <p>Perinthalmanna, Malappuram , Kerala, India</p>
+      <a>Perinthalmanna, Malappuram , Kerala, India</a>
     </div>
   </div>
+
+  <script>
+    const toggleBtn = document.querySelector('.toggle-btn');
+    const toggleBtnIcon = document.querySelector('#toggle-btn-icon');
+    const dropDown = document.querySelector('.dropdown');
+
+    toggleBtn.onclick = function () {
+        dropDown.classList.toggle ('open');
+        const isOpen = dropDown.classList.contains('open');
+
+        toggleBtnIcon.classList = isOpen? 'fa-solid fa-xmark': 'fa-solid fa-bars';
+        console.log(isOpen)
+    }
+  </script>
 </body>
 </html>
