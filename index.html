@@ -14,13 +14,14 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="btn-div">
-        <button>Hire Me</button>
-        <div class="toggle-btn">
-            <i class="fa-solid fa-bars" id="toggle-btn-icon"></i>
-        </div>
+        
+        <div class="menu-icon" onclick="toggleMenu()">
+          &#x274C; <!-- Hamburger icon -->
+      </div>
+      <button>Hire Me</button>
     </div>
     </div>
-    <div class="dropdown ">
+    <div class="dropdown">
       <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -96,17 +97,45 @@
   </div>
 
   <script>
-    const toggleBtn = document.querySelector('.toggle-btn');
-    const toggleBtnIcon = document.querySelector('#toggle-btn-icon');
-    const dropDown = document.querySelector('.dropdown');
+    function toggleMenu() {
+        var navLinks = document.querySelector('.nav-links');
+        let menuIcon = document.querySelector('.menu-icon');
+        const dropdown = document.querySelector('.dropdown')
 
-    toggleBtn.onclick = function () {
-        dropDown.classList.toggle ('open');
-        const isOpen = dropDown.classList.contains('open');
-
-        toggleBtnIcon.classList = isOpen? 'fa-solid fa-xmark': 'fa-solid fa-bars';
-        console.log(isOpen)
+        dropdown.classList.toggle('open');
+        const list=dropdown.classList.contains('open')
+        if(list === true){
+            menuIcon.innerHTML  = `&#x274C;`
+        }else if(menuIcon.innerHTML  = `&#x274C;`){
+             menuIcon.innerHTML  = '&#9776;';
+        }
     }
-  </script>
+
+
+
+    function detectDevice() {
+      var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      let dropdown = document.querySelector('.dropdown');
+      let menuIcon = document.querySelector('.menu-icon');
+
+
+      if (screenWidth > 768) {
+          dropdown.classList.remove('open')
+      }
+      else if (menuIcon.innerHTML  === `&#x274C;`|| screenWidth<=768){
+        dropdown.classList.add('open')
+        menuIcon.innerHTML  = `&#x274C;`;
+
+      }
+    }
+
+
+// Call detectDevice on page load
+window.addEventListener('load', detectDevice);
+
+// Call detectDevice on window resize
+window.addEventListener('resize', detectDevice);
+
+</script>
 </body>
 </html>
